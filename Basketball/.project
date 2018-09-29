@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Documentation/Informe Lab 3.docx</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Escritorio/aed/Informe%20Lab%203.docx</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
