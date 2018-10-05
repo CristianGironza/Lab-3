@@ -10,9 +10,20 @@ public class list<T> {
 	
 	public void add (T nodeN) {
 		
+		T auxFirst = first; 
+		
 		if(first == null ) {
 			first = nodeN; 
 		}
+		else {
+			add(nodeN, auxFirst); 
+		}
+		
+	}
+	
+	public void add( T nodeN , T predecessor ) {
+		
+		
 		
 		
 		

@@ -13,15 +13,15 @@ public class NodeList<T> implements INodeList{
 		return next;
 	}
 
-	public void setNext(NodeList<T> newNext) {
-		this.next = (T) newNext;
+	public void setNext(T newNext) {
+		this.next = newNext;
 	} 
 	
 	@Override
 	public void suspendNext() {
-		NodeList<T> delt = (NodeList<T>) this.getNext(); 
-		NodeList<T> newNext = (NodeList<T>) delt.getNext(); 
-		this.setNext(newNext);
+		T delt =  this.getNext(); 
+//		T newNext =  delt.getNext(); 
+//		this.setNext(newNext);
 		
 	}
 	

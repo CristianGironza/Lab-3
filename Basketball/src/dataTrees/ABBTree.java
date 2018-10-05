@@ -1,12 +1,11 @@
 package dataTrees;
 
-public class ABB {
+public class ABBTree {
 	
 	private Node root; 
 	private int size;
 	
-	
-	public ABB(Node root, int size) {
+	public ABBTree(Node root, int size) {
 		this.root = root;
 		this.size = size;
 	}
@@ -15,11 +14,9 @@ public class ABB {
 		return root;
 	}
 
-
 	public void setRoot(Node root) {
 		this.root = root;
 	}
-
 
 	public int getSize() {
 		return size;
@@ -33,8 +30,7 @@ public class ABB {
 		else 
 			add( n, root);
 	}
-	
-	
+		
 	public void add(Node n , Node auxRoot) {
 		
 		if (n.compareTo(auxRoot) < 0) {
