@@ -1,5 +1,8 @@
 package user_interface;
 
-public class Window {
+import javax.swing.JFrame;
 
+public class Window extends JFrame {
+
+	
 }
