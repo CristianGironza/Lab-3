@@ -1,6 +1,6 @@
 package list;
 
-public class NodeList<T> {
+public class NodeList<T> implements INodeList{
 	
 	private T next ;
 
@@ -13,9 +13,17 @@ public class NodeList<T> {
 		return next;
 	}
 
-	public void setNext(T next) {
-		this.next = next;
+	public void setNext(NodeList<T> newNext) {
+		this.next = (T) newNext;
 	} 
+	
+	@Override
+	public void suspendNext() {
+		NodeList<T> delt = (NodeList<T>) this.getNext(); 
+		NodeList<T> newNext = (NodeList<T>) delt.getNext(); 
+		this.setNext(newNext);
+		
+	}
 	
 	
 	
