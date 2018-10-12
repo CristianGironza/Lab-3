@@ -4,18 +4,30 @@ public class Node <K,V> implements Comparable<V> {
 	
 	private K key; 
 	private V value;
+
+	//only for black and red trees 
+	public final static int BLACK = 0; 
+	public final static int RED = 1; 
+	private int color; 
 	
 	private Node father;
 	private Node left; 
 	private Node right;
 	
-	public Node(K key , V value, Node left , Node right, Node father) {
+	// only for black and red trees
+	private Node uncle; 
+	private Node grandFather; 
+	
+	public Node(K key, V value, int color, Node father, Node left, Node right, Node uncle, Node grandFather) {
+		super();
 		this.key = key;
-		this.value = value; 
-		this.left = left; 
+		this.value = value;
+		this.color = color;
+		this.father = father;
+		this.left = left;
 		this.right = right;
-		this.father = father; 
-		
+		this.uncle = uncle;
+		this.grandFather = grandFather;
 	}
 
 	public Node getFather() {
@@ -58,6 +70,30 @@ public class Node <K,V> implements Comparable<V> {
 		this.value = value;
 	}
 
+	public int getColor() {
+		return color;
+	}
+
+	public void setColor(int color) {
+		this.color = color;
+	}
+
+	public Node getUncle() {
+		return uncle;
+	}
+
+	public void setUncle(Node uncle) {
+		this.uncle = uncle;
+	}
+
+	public Node getGrandFather() {
+		return grandFather;
+	}
+
+	public void setGrandFather(Node grandFather) {
+		this.grandFather = grandFather;
+	}
+
 	public boolean haveLeftSon() {
 		return this.getLeft() != null; 
 	}
@@ -82,6 +118,15 @@ public class Node <K,V> implements Comparable<V> {
 		return this.getLeft() == null && this.getRight() == null; 
 	}
 	
+	public void repaint() {
+		if (this.getColor() == 0) 
+			this.setColor(RED);
+		
+		else
+			this.setColor(BLACK);
+		
+	}
+
 	
 	
 	

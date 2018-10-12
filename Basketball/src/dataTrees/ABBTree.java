@@ -50,6 +50,68 @@ public class ABBTree {
 		
 		
 	}
+
+	public void leftRotete(Node actual) {
+		
+		if (actual.getFather() != null) {
+
+			Node x = actual.getFather(); 
+				
+			 if (actual.getLeft() != null) {
+				 Node b = actual.getLeft();
+				 x.setRight(b); 
+			 }
+			 actual.setFather(x.getFather());
+			
+			 if(x.getFather() == null) 
+				 root = actual ; 
+			 
+			 else if (x.isLeftSon()) 
+				 x.getFather().setLeft(actual); 
+			 
+			 else 
+				 x.getFather().setRight(actual);
+			 
+			actual.setLeft(x);
+			actual.setFather(x.getFather()); 
+		
+		}
+		 
+	}
+	
+
+	public void rigthRotete(Node actual) {
+		
+		if (actual.getFather() != null) {
+
+			Node y = actual.getFather(); 
+				
+			 if (actual.getRight() != null) {
+				 Node b = actual.getRight();
+				 y.setLeft(b); 
+			 }
+			 actual.setFather(y.getFather());
+			
+			 if(y.getFather() == null) 
+				 root = actual; 
+			 
+			 else if (y.isLeftSon()) 
+				 y.getFather().setLeft(actual); 
+			 
+			 else 
+				 y.getFather().setRight(actual);
+			 
+			actual.setRight(y);
+			actual.setFather(y.getFather()); 
+			
+		}
+		 
+	}
+	
+
+	
+	
+	
 	
 	
 }
