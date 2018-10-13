@@ -1,10 +1,22 @@
 package dataTrees;
-
+/**
+ * Represent a generic tree structure 
+ * */
 public class ABBTree {
 	
+	/**
+	 * root : is the root of the tree ABB
+	 * for more information of this object see the class Node 
+	 * */
 	private Node root; 
+	/**
+	 * size : is a int that represent of the size of the tree 
+	 * */
 	private int size;
 	
+	/**
+	 * the constructor of the class ABBTree
+	 * */
 	public ABBTree(Node root, int size) {
 		this.root = root;
 		this.size = size;
@@ -22,35 +34,61 @@ public class ABBTree {
 		return size;
 	}
 
+	/**
+	 * add : this method, add nodes to the tree
+	 * @param n : Node - the new element that has been to the tree 
+	 * @return void 
+	 * */
 	public void add(Node n) {
 		
-		if (root == null)
+		if (root == null) {
 			root = n;
-		
+			size++; 
+		}
 		else 
 			add( n, root);
 	}
 		
-	public void add(Node n , Node auxRoot) {
+	/**
+	 * add : this method, add nodes to the tree
+	 * @param n       : Node - the new element that has been to the tree 
+	 * 		  auxNode : Node - the before node to n 
+	 * @return void 	
+	 * */
+	private void add(Node n , Node auxRoot) {
 		
 		if (n.compareTo(auxRoot) < 0) {
-			if(auxRoot.haveLeftSon())
+			if(auxRoot.haveLeftSon()) {
 				add(n, auxRoot.getLeft());
-			else 
-				auxRoot.setLeft(n); 
+				size++;
+			}
+				
+			else { 
+				auxRoot.setLeft(n);
+				size++;
+			}
 		}
 	
 		else {
-			if(auxRoot.haveRightSon())
+			if(auxRoot.haveRightSon()) {
 				add(n, auxRoot.getRight());
-			else 
+				size++;	
+			}
+			else {
 				auxRoot.setRight(n);
+				size++;
+			}
 		}
-		
-		
-		
 	}
 
+	/**
+	 * leftRotete : -this method help to balance the trees AVL and Black and Red trees
+	 * 				-this method change two Nodes to stabilize the tree in such a way
+	 * 				 that the tree remain a ABB 
+	 *  
+	 * @param actual : Node - the Node that needs rotate 
+	 * @return void 
+	 * */
 	public void leftRotete(Node actual) {
 		
 		if (actual.getFather() != null) {
@@ -79,7 +117,14 @@ public class ABBTree {
 		 
 	}
 	
-
+	/**
+	 * rigthRotete : -this method help to balance the trees AVL and Black and Red trees
+	 * 				-this method change two Nodes to stabilize the tree in such a way
+	 * 				 that the tree remain a ABB 
+	 *  
+	 * @param actual : Node - the Node that needs rotate 
+	 * @return void 
+	 * */
 	public void rigthRotete(Node actual) {
 		
 		if (actual.getFather() != null) {
