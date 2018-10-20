@@ -5,10 +5,12 @@ package dataTrees;
  * */
 public class RedBlackTree extends ABBTree{
 
+	private NodeBR root; 
+	
 	/**
 	 * 
 	 * */
-	public RedBlackTree(Node root, int size) {
+	public RedBlackTree(NodeBR root, int size) {
 		super(root, size);
 		
 		

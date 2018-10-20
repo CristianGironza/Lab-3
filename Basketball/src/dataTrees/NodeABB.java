@@ -6,98 +6,60 @@ package dataTrees;
  * - value : which is the number in which contain the object or objects 
  * 			 whit the same value   
  * */
-public class Node <K,V> implements Comparable<V> {
+public class NodeABB <K,V> implements Comparable<V> {
 	
 	private K key; 
 	private V value;
-
-  //----------------------------------------\\
- //      ONLY FOR BLACK AND RED TREES        \\
-//--------------------------------------------\\
-	
-	/**
-	 * this constant represent the color black 
-	 * this is only black and red trees
-	 * */
-	public final static int BLACK = 0; 
-	
-	/**
-	 * this constant represent the color black 
-	 * this is only black and red trees
-	 * */
-	public final static int RED = 1; 
-	
-	/**
-	 * represent the color of Node 
-	 * this is only black and red trees
-	 * */
-	private int color; 
-	
-	/**
-	 * represent the "uncle" of the Node
-	 * this is only black and red trees 
-	 * */
-	private Node uncle; 
-	
-	/**
-	 * represent the "grandFather" of the Node
-	 * this is only black and red trees 
-	 * */
-	private Node grandFather; 
-	
-//--------------------------------------------------\\	
 	
 	/**
 	 * represent the father of Node 
 	 * */
-	private Node father;
+	private NodeABB father;
 	
 	/**
 	 * represent the left son of the Node
 	 * */
-	private Node left; 
+	private NodeABB left; 
 	
 	/**
 	 * represent the right of the Node 
 	 * */
-	private Node right;
+	private NodeABB right;
 	
 	/**
 	 * initialize a generic Node 
 	 * */
-	public Node(K key, V value, int color, Node father, Node left, Node right, Node uncle, Node grandFather) {
+	public NodeABB(K key, V value, NodeABB father, NodeABB left, NodeABB right) {
 		super();
 		this.key = key;
 		this.value = value;
-		this.color = color;
+		
 		this.father = father;
 		this.left = left;
 		this.right = right;
-		this.uncle = uncle;
-		this.grandFather = grandFather;
 	}
 
-	public Node getFather() {
+	public NodeABB getFather() {
 		return father;
 	}
 
-	public void setFather(Node father) {
+	public void setFather(NodeABB father) {
 		this.father = father;
 	}
 
-	public Node getLeft() {
+	public NodeABB getLeft() {
 		return left;
 	}
 
-	public void setLeft(Node left) {
+	public void setLeft(NodeABB left) {
 		this.left = left;
 	}
 
-	public Node getRight() {
+	public NodeABB getRight() {
 		return right;
 	}
 
-	public void setRight(Node right) {
+	public void setRight(NodeABB right) {
 		this.right = right;
 	}
 	
@@ -115,30 +77,6 @@ public class Node <K,V> implements Comparable<V> {
 
 	public void setValue(V value) {
 		this.value = value;
-	}
-
-	public int getColor() {
-		return color;
-	}
-
-	public void setColor(int color) {
-		this.color = color;
-	}
-
-	public Node getUncle() {
-		return uncle;
-	}
-
-	public void setUncle(Node uncle) {
-		this.uncle = uncle;
-	}
-
-	public Node getGrandFather() {
-		return grandFather;
-	}
-
-	public void setGrandFather(Node grandFather) {
-		this.grandFather = grandFather;
 	}
 
 	/**
@@ -194,28 +132,20 @@ public class Node <K,V> implements Comparable<V> {
 	public boolean isSon() {
 		return this.getLeft() == null && this.getRight() == null; 
 	}
-	
-	/**
-	 * repaint() : this method chance the color of the actual Node
-	 * this is only black and red trees 
-	 * */
-	public void repaint() {
-		if (this.getColor() == 0) 
-			this.setColor(RED);
-		
-		else
-			this.setColor(BLACK);
-		
-	}
 
+	public int calculateHeight() {
+	   int height = 0; 
+		if (this.isSon())
+	    	return height; 
+		
+	    else if (this != null) {
+	    	height++; 
+	        return this.left.calculateHeight() +  this.right.calculateHeight();        
+	    }
+	    return height; 
+	 }
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	@Override
