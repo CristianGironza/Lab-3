@@ -81,14 +81,6 @@ public class ABBTree {
 		}
 	}
 
-	public NodeABB buscar ( K key ) {
-		if ( root == null )
-		return null ;
-		else
-		root.buscar ( key ) ;
-		}
-	
-
 	
 	
 	
