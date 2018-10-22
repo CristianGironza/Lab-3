@@ -1,33 +1,33 @@
 package user_interface;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.*;
 
-public class SearchPanel extends JFrame {
+public class SearchPanel extends JPanel {
 	
-	private JTextField Search;
+	private JTextField search;
 	private JComboBox<String> kind;
 	private JButton toSearch;
 	
 	public SearchPanel() {
 		setLayout(new BorderLayout());
-		Search = new JTextField();
+		search = new JTextField();
+		search.setFont(new Font(search.getFont().getFontName(), search.getFont().getStyle(), 15));
+		search.setBackground(Color.BLACK);
 		String[] kinds = {"Número de pases", "Canastas hechas", "Partidos ganados", "Partidos perdidos"};
 		kind = new JComboBox<String>();
 		kind.setModel(new DefaultComboBoxModel<String>(kinds));
+		kind.setFont(new Font(kind.getFont().getFontName(), kind.getFont().getStyle(), 15));
+		kind.setBackground(new Color(236, 124, 38));
 		toSearch = new JButton("BUSCAR");
-		toSearch.setIcon(new ImageIcon("Basketball/Files/Image/myAvatar (1).png"));
+		toSearch.setFont(new Font(kind.getFont().getFontName(), kind.getFont().getStyle(), 15));
+		toSearch.setBackground(new Color(236, 124, 38));
 		
 		add(kind, BorderLayout.WEST);
-		add(Search, BorderLayout.CENTER);
+		add(search, BorderLayout.CENTER);
 		add(toSearch, BorderLayout.EAST);
-		
-		setSize(500, 500);
-		setVisible(true);
-	}
-	
-	public static void main(String[] args) {
-		SearchPanel h = new SearchPanel();
 	}
 }
