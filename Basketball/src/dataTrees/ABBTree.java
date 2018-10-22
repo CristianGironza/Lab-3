@@ -39,7 +39,7 @@ public class ABBTree {
 	 * @param n : Node - the new element that has been to the tree 
 	 * @return void 
 	 * */
-	public void add(NodeABB n) {
+	public void addNode(NodeABB n) {
 		
 		if (root == null) {
 			root = n;

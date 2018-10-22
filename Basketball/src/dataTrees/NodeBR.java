@@ -50,16 +50,23 @@ public class NodeBR extends NodeABB {
 		this.color = color;
 	}
 
-	public NodeABB getUncle() {
-		return uncle;
+	public NodeBR getUncle() {
+		NodeABB uncleO = null; 
+		if(this.getFather().isLeftSon()) {
+			uncleO = this.getGrandFather().getRight(); 
+		}
+		else {
+			uncleO = this.getGrandFather().getLeft();
+		}
+		return (NodeBR) uncleO;
 	}
 
 	public void setUncle(NodeBR uncle) {
 		this.uncle = uncle;
 	}
 
-	public NodeABB getGrandFather() {
-		return grandFather;
+	public NodeBR getGrandFather() {
+		return (NodeBR) this.getFather().getFather();
 	}
 
 	public void setGrandFather(NodeBR grandFather) {
