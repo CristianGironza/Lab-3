@@ -2,6 +2,7 @@ package dataTrees;
 
 public class NodeBR extends NodeABB {
 
+	
 	/**
 	 * this constant represent the color black 
 	 * this is only black and red trees
@@ -33,15 +34,14 @@ public class NodeBR extends NodeABB {
 	private NodeBR grandFather;
 
 	
-	public NodeBR(Object key, Object value, NodeABB father, NodeABB left, NodeABB right, 
-			int color, NodeBR uncle, NodeBR grandFather) {
-		super(key, value, father, left, right);
+	public NodeBR(NodeABB next, String key, NodeABB father, NodeABB left, NodeABB right, int color, 
+			NodeBR uncle,NodeBR grandFather) {
+		super(next, key, father, left, right);
 		this.color = color;
 		this.uncle = uncle;
 		this.grandFather = grandFather;
 	}
 
-	
 	public int getColor() {
 		return color;
 	}

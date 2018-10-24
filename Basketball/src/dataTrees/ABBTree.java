@@ -1,4 +1,6 @@
 package dataTrees;
+
+
 /**
  * Represent a generic tree structure 
  * */
@@ -69,7 +71,7 @@ public class ABBTree {
 			}
 		}
 	
-		else {
+		else if (n.compareTo(auxRoot) > 0  ){
 			if(auxRoot.haveRightSon()) {
 				add(n, auxRoot.getRight());
 				size++;	
@@ -79,14 +81,95 @@ public class ABBTree {
 				size++;
 			}
 		}
+		else {
+			auxRoot.setNext(n);
+		}
 	}
 
 	
+	/**
+	 * leftRotete : -this method help to balance the trees AVL and Black and Red trees
+	 * 				-this method change two Nodes to stabilize the tree in such a way
+	 * 				 that the tree remain a ABB 
+	 *  
+	 * @param actual : Node - the Node that needs rotate 
+	 * @return void 
+	 * */
+	protected void leftRotete(NodeABB actual) {
+		
+		if (actual.getFather() != null) {
+
+			NodeABB x = actual.getFather(); 
+				
+			 if (actual.getLeft() != null) {
+				 NodeABB b = actual.getLeft();
+				 x.setRight(b); 
+			 }
+			 actual.setFather(x.getFather());
+			
+			 if(x.getFather() == null) 
+				 root = actual ; 
+			 
+			 else if (x.isLeftSon()) 
+				 x.getFather().setLeft(actual); 
+			 
+			 else 
+				 x.getFather().setRight(actual);
+			 
+			actual.setLeft(x);
+			actual.setFather(x.getFather()); 
+		}
+	}
+	
+	/**
+	 * rigthRotete : -this method help to balance the trees AVL and Black and Red trees
+	 * 				-this method change two Nodes to stabilize the tree in such a way
+	 * 				 that the tree remain a ABB 
+	 *  
+	 * @param actual : Node - the Node that needs rotate 
+	 * @return void 
+	 * */
+	protected void rigthRotete(NodeABB actual) {
+		
+		if (actual.getFather() != null) {
+
+			NodeABB y = actual.getFather(); 
+				
+			 if (actual.getRight() != null) {
+				 NodeABB b = actual.getRight();
+				 y.setLeft(b); 
+			 }
+			 actual.setFather(y.getFather());
+			
+			 if(y.getFather() == null) 
+				 root = actual; 
+			 
+			 else if (y.isLeftSon()) 
+				 y.getFather().setLeft(actual); 
+			 
+			 else 
+				 y.getFather().setRight(actual);
+			 
+			actual.setRight(y);
+			actual.setFather(y.getFather()); 	
+		}	 
+	}
+	
+	/**
+	 * search : search the node or nodes with the same key  
+	 * @param key : String represent the criterion of ordering 
+	 * @return the NodeABB that has been search 
+	 * */
+	public NodeABB search( String key ) {
+		if ( root == null )
+			return null ;
+		else
+			return root.search(key);
+		}
 	
 	
 	
 	
 }
 	
-
 

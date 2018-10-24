@@ -6,10 +6,19 @@ package dataTrees;
  * - value : which is the number in which contain the object or objects 
  * 			 whit the same value   
  * */
-public class NodeABB <K,V> implements Comparable<V> {
+public class NodeABB <T> implements Comparable<NodeABB> {
 	
-	private K key; 
-	private V value;
+	protected final static String[] CRITERIOS = {"name", "age","height", "baskets", "passes" };
+	
+	/**
+	 * represent the next node in the case of the nodes have the same key 
+	 * */
+	private NodeABB next; 
+	
+	/**
+	 * represent the criterion of ordering of the tree 
+	 * */
+	private String key; 
 	
 	/**
 	 * represent the father of Node 
@@ -29,14 +38,20 @@ public class NodeABB <K,V> implements Comparable<V> {
 	/**
 	 * initialize a generic Node 
 	 * */
-	public NodeABB(K key, V value, NodeABB father, NodeABB left, NodeABB right) {
-		super();
-		this.key = key;
-		this.value = value;
-		
+	public NodeABB(NodeABB next,String key ,NodeABB father, NodeABB left, NodeABB right) {
+		this.next = next;
+		this.key = key ; 
 		this.father = father;
 		this.left = left;
 		this.right = right;
+	}
+
+	public NodeABB getNext() {
+		return next;
+	}
+
+	public void setNext(NodeABB next) {
+		this.next = next;
 	}
 
 	public NodeABB getFather() {
@@ -63,20 +78,12 @@ public class NodeABB <K,V> implements Comparable<V> {
 		this.right = right;
 	}
 	
-	public K getKey() {
+	public String getKey() {
 		return key;
 	}
 
-	public void setKey(K key) {
+	public void setKey(String key) {
 		this.key = key;
-	}
-
-	public V getValue() {
-		return value;
-	}
-
-	public void setValue(V value) {
-		this.value = value;
 	}
 
 	/**
@@ -145,15 +152,50 @@ public class NodeABB <K,V> implements Comparable<V> {
 	    return height; 
 	 }
 	
+	/**
+	 * search : search the node or nodes with the same key  
+	 * @param key : String represent the criterion of ordering 
+	 * @return the NodeABB that has been search 
+	 * */
+	public NodeABB search ( String key ) {
+		if ( key == this.key )
+		return this ;
+		else if ( key.compareTo(this.key) < 0 ) {
+			if ( left == null )
+				return null ;
+			else
+				return left.search(key);
+		}
+		else {
+			if ( right == null )
+				return null ;
+			else
+				return right.search(key) ;
+		}
+	}
+	
 
+	private NodeABB getMax ( ) {
+		if (right == null) 
+			return this;
+		else
+			return right.getMax();
+	}
+
+	public NodeABB getSuccessor() {
+		return this.getMax().getFather().getLeft(); 
+	}
 	
 	
+	/**
+	 * compare to NodeABB whit other NoteABB depending of criterion 
+	 * */
 	@Override
-	public int compareTo(V o) {
-		 
+	public int compareTo(NodeABB o) {
 		
+		int result = this.getKey().compareTo(o.getKey()); 
 		
-		return 0;
+		return result;
 	}
 	
 	
