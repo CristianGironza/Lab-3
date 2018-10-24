@@ -16,7 +16,7 @@ public class ControllerWindow implements Initializable {
 		
 	}
 	
-	public void deletear(ActionEvent e) {
+	public void helloworld(ActionEvent e) {
 		System.out.println("hola");
 	}
 }
