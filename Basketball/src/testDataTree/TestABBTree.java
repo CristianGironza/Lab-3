@@ -41,7 +41,7 @@ class TestABBTree {
 		theTree.addNode(theSusesor   );
 		
 		System.out.println(theTree.getRoot().getLeft().getKey());
-		System.out.println(thelefson.getKey());
+		System.out.println(theSusesor.getKey());
 		
 		assertTrue(theTree.getRoot().getKey() == theRoot.getKey());
 		assertTrue(theTree.getRoot().getLeft().getKey() == thelefson.getKey());
