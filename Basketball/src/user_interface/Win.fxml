@@ -49,15 +49,17 @@
             <TextField fx:id="drp" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <Button fx:id="novel" mnemonicParsing="false" onAction="#helloworld" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #000000;" text="NEW" textFill="WHITE" GridPane.rowIndex="8" />
             <Button fx:id="save" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #000000;" text="SAVE" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Button fx:id="image" mnemonicParsing="false" onAction="#chooseImage" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #000000;" text="IMAGE" textFill="WHITE" GridPane.rowIndex="9" />
-            <Button fx:id="delate" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #000000;" text="DELATE" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Button fx:id="delate" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #000000;" text="DELATE" textFill="WHITE" GridPane.rowIndex="9" />
          </children>
       </GridPane>
    </center>
    <left>
       <BorderPane prefHeight="342.0" prefWidth="62.0" BorderPane.alignment="CENTER">
          <center>
-            <ImageView fx:id="profile" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="profile" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../Files/Image/myAvatar%20(5).png" />
+               </image></ImageView>
          </center>
          <left>
             <Button fx:id="before" mnemonicParsing="false" style="-fx-background-color: #000000;" text="BEFORE" textFill="WHITE" BorderPane.alignment="CENTER" />

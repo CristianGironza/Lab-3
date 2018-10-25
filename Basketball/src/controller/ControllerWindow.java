@@ -56,19 +56,7 @@ public class ControllerWindow implements Initializable {
 		ObservableList<String> options = FXCollections.observableArrayList("Games","True Shooting Percentage","Offensive Rebound Percentage","Deffensive Rebound Percentage");
 		type.setItems(options);
 	}
-	@FXML
-	public void chooseImage(ActionEvent event) {
-		Image x = new Image("Files/Image/FIBA.jpg");
-		profile.setImage(x);
-//		FileChooser select = new FileChooser();
-//		select.setInitialDirectory(new File("Files/Image"));
-//		select.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.png"));
-//		File image = select.showOpenDialog(null);
-//		System.out.println("/Files/Image/"+image.getName());
-//		if(image!=null) {
-//			profile.setImage(new Image("Files/Image/myAvatar (1)"));
-//		}
-	}
+
 	public void helloworld() {
 		System.out.println("hola");
 		per.setText("hola");
