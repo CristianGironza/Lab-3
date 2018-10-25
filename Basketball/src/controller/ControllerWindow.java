@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.Collection;
 import java.util.Iterator;
@@ -7,6 +8,8 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Observable;
 import java.util.ResourceBundle;
+
+import javax.swing.filechooser.FileFilter;
 
 import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
@@ -18,7 +21,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class ControllerWindow implements Initializable {
 	@FXML
@@ -43,12 +49,26 @@ public class ControllerWindow implements Initializable {
 	private ComboBox<String> type;
 	@FXML
 	private TextField input;
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> options = FXCollections.observableArrayList("Games","True Shooting Percentage","Offensive Rebound Percentage","Deffensive Rebound Percentage");
 		type.setItems(options);
 	}
-	
+	@FXML
+	public void chooseImage(ActionEvent event) {
+		Image x = new Image("Files/Image/FIBA.jpg");
+		profile.setImage(x);
+//		FileChooser select = new FileChooser();
+//		select.setInitialDirectory(new File("Files/Image"));
+//		select.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.png"));
+//		File image = select.showOpenDialog(null);
+//		System.out.println("/Files/Image/"+image.getName());
+//		if(image!=null) {
+//			profile.setImage(new Image("Files/Image/myAvatar (1)"));
+//		}
+	}
 	public void helloworld() {
 		System.out.println("hola");
 		per.setText("hola");
