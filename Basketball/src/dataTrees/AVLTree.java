@@ -17,6 +17,17 @@ public class AVLTree extends ABBTree {
 		this.root = root;
 	}
 
+	
+	public int calculateBalanceFactor() {
+		if ( root == null )
+			return 0;
+		else
+			return root.calculateBalanceFactor();
+
+	
+	}
+	
+	
 	/**
 	 * balancedTree : this method balanced the tree 
 	 * @param NodeAVL newAVL    : the node has been added to tree
@@ -39,7 +50,7 @@ public class AVLTree extends ABBTree {
 					 balanced = true; // Leave the loop
 				 }
 				 else if (fatherAVL.calculateBalanceFactor() == -1) {
-					 fatherAVL.setBalanceFactor(0);  // Nâ€™s height increase is absorbed at P.
+					 fatherAVL.setBalanceFactor(0);  // N’s height increase is absorbed at P.
 					 balanced = true; // Leave the loop
 			 }
 			 fatherAVL.setBalanceFactor(1);  // Height increases at P
@@ -56,7 +67,7 @@ public class AVLTree extends ABBTree {
 					 balanced = true; // Leave the loop
 				 }
 				 if (fatherAVL.calculateBalanceFactor() == 1) {
-					 fatherAVL.setBalanceFactor(0);  // Nâ€™s height increase is absorbed at P.
+					 fatherAVL.setBalanceFactor(0);  // N’s height increase is absorbed at P.
 					 balanced = true; // Leave the loop
 				 }
 				 fatherAVL.setBalanceFactor(-1);  // Height increases at P

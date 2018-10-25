@@ -51,9 +51,22 @@ public class NodeABB <T> implements Comparable<NodeABB> {
 	}
 
 	public void setNext(NodeABB next) {
-		this.next = next;
+//		if(this.getNext() == null ) {
+			this.next = next;
+//			return; 
+//		} 
+//		else {
+//			setNext(this.getNext());	 
+//		}
 	}
 
+	public NodeABB getLast(NodeABB actual) {
+		if (actual.getNext() != null)
+			return getLast(actual.getNext());
+		else
+			return actual; 
+	}
+	
 	public NodeABB getFather() {
 		return father;
 	}
@@ -182,8 +195,16 @@ public class NodeABB <T> implements Comparable<NodeABB> {
 			return right.getMax();
 	}
 
+	private NodeABB getMin() {
+		if(left == null) 
+			return this;
+		else 
+			return left.getMin(); 
+	}
+	
+	
 	public NodeABB getSuccessor() {
-		return this.getMax().getFather().getLeft(); 
+		return this.getMax().getMin(); 
 	}
 	
 	

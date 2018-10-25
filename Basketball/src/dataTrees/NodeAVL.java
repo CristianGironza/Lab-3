@@ -19,9 +19,18 @@ public class NodeAVL extends NodeABB{
 	} 
 
 	public int calculateBalanceFactor() {
-		
-		balanceFactor = this.getLeft().calculateHeight() - this.getRight().calculateHeight(); 
-		return balanceFactor; 
+		int p1 , p2 ;
+		if ( this.getLeft() == null )
+			p1 = 0 ;
+		else
+			p1 = ((NodeAVL) this.getLeft()).calculateBalanceFactor() ;
+		if ( this.getRight() == null )
+			p2 = 0 ;
+		else
+			p2 = ((NodeAVL) this.getRight()).calculateBalanceFactor() ;
+		return p1 - p2 ;
+			
+		 
 	}
 	
 	
