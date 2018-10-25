@@ -17,6 +17,17 @@ public class AVLTree extends ABBTree {
 		this.root = root;
 	}
 
+	
+	public int calculateBalanceFactor() {
+		if ( root == null )
+			return 0;
+		else
+			return root.calculateBalanceFactor();
+
+	
+	}
+	
+	
 	/**
 	 * balancedTree : this method balanced the tree 
 	 * @param NodeAVL newAVL    : the node has been added to tree
