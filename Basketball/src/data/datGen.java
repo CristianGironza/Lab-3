@@ -11,7 +11,7 @@ public class datGen {
 
 	public void generador()throws IOException
 	{
-		File file = new File("doc/data.csv");
+		File file = new File("Files/Data/data.csv");
 		FileReader filereader = new FileReader(file);
 		file.mkdirs();
 		
