@@ -82,7 +82,13 @@ public class ABBTree {
 			}
 		}
 		else {
-			auxRoot.setNext(n);
+			if(auxRoot.getNext() == null) {
+				auxRoot.getLast(auxRoot.getNext());
+				
+			}
+			else {
+				auxRoot.setNext(n); 
+			}
 		}
 	}
 
