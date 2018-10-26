@@ -6,7 +6,7 @@ package dataTrees;
  * - value : which is the number in which contain the object or objects 
  * 			 whit the same value   
  * */
-public class NodeABB <T> implements Comparable<NodeABB> {
+public class NodeABB <K,V> implements Comparable<NodeABB> {
 	
 	protected final static String[] CRITERIOS = {"name", "age","height", "baskets", "passes" };
 	

@@ -62,11 +62,14 @@ public class RedBlackTree extends ABBTree{
 
 	private void addCase4(NodeBR newBR) {
 		((NodeBR)newBR.getFather()).setColor(NodeBR.BLACK);
-		newBR.getGrandFather().setColor(NodeBR.RED);
+		if(newBR.getGrandFather() != null) {
+			newBR.getGrandFather().setColor(NodeBR.RED);
+		}
+		
 		
 		if(newBR.isLeftSon() && newBR.getFather().isLeftSon()) {
 			rigthRotete(newBR.getGrandFather());
-		}else {
+		}else if (newBR.getGrandFather() != null) {
 			leftRotete(newBR.getGrandFather());
 		}
 		

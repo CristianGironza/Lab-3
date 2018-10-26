@@ -1,6 +1,6 @@
 package dataTrees;
 
-public class NodeAVL extends NodeABB{
+public class NodeAVL<K,V> extends NodeABB{
 
 	private int balanceFactor;
 

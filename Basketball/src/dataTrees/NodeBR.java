@@ -1,6 +1,6 @@
 package dataTrees;
 
-public class NodeBR extends NodeABB {
+public class NodeBR<K,V> extends NodeABB {
 
 	
 	/**

@@ -56,15 +56,7 @@ class TestBRTree {
 		assertTrue( (theTree.getRoot().getLeft().getLeft().getLeft().getRight().getKey() == node4.getKey()) && (node4.getColor() == NodeBR.RED) );
 		
 		
-		
-//		
-//		
-//		
-//		
-//		
-//		assertTrue( (theTree.getRoot().getRight().getRight().getLeft().getKey() == node4.getKey()) && (node4.getColor() == NodeBR.BLACK) );
-//		assertTrue( (theTree.getRoot().getRight().getRight().getLeft().getRight().getKey() == node8.getKey()) && (node8.getColor() == NodeBR.RED) );
-//		
+	
 		
 		
 		
